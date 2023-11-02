@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_product_listing_product_listings",
+  "info": {
+    "displayName": "ProductListing",
+    "icon": "shirt"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Images": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "Color": {
+      "type": "string"
+    },
+    "Price": {
+      "type": "integer"
+    },
+    "Stock": {
+      "type": "integer"
+    }
+  }
+}

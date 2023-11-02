@@ -1,0 +1,33 @@
+{
+  "name": "select-store",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "dependencies": {
+    "@strapi/plugin-color-picker": "^4.15.0",
+    "@strapi/plugin-i18n": "4.15.0",
+    "@strapi/plugin-users-permissions": "4.15.0",
+    "@strapi/strapi": "4.15.0",
+    "better-sqlite3": "8.6.0",
+    "pg": "^8.11.3",
+    "pg-connection-string": "^2.6.2",
+    "strapi-plugin-populate-deep": "^3.0.0"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "0e8d4918-2a21-4bdf-a034-759fbc90d6b5"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=20.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
