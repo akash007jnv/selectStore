@@ -791,6 +791,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
     singularName: 'product';
     pluralName: 'products';
     displayName: 'Product';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -818,6 +819,13 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'manyToMany',
       'api::brand.brand'
     >;
+    Image: Attribute.Media;
+    Price: Attribute.Integer;
+    tags: Attribute.Relation<
+      'api::product.product',
+      'manyToMany',
+      'api::tag.tag'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -832,6 +840,35 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTagTag extends Schema.CollectionType {
+  collectionName: 'tags';
+  info: {
+    singularName: 'tag';
+    pluralName: 'tags';
+    displayName: 'Tag';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Tags: Attribute.Component<'tags.tags', true>;
+    products: Attribute.Relation<
+      'api::tag.tag',
+      'manyToMany',
+      'api::product.product'
+    >;
+    TagTitle: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -856,6 +893,7 @@ declare module '@strapi/types' {
       'api::category.category': ApiCategoryCategory;
       'api::featured-post.featured-post': ApiFeaturedPostFeaturedPost;
       'api::product.product': ApiProductProduct;
+      'api::tag.tag': ApiTagTag;
     }
   }
 }

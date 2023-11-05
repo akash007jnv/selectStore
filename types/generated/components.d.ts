@@ -15,10 +15,21 @@ export interface ProductListingProductListing extends Schema.Component {
   };
 }
 
+export interface TagsTags extends Schema.Component {
+  collectionName: 'components_tags_tags';
+  info: {
+    displayName: 'Tags';
+  };
+  attributes: {
+    Title: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'product-listing.product-listing': ProductListingProductListing;
+      'tags.tags': TagsTags;
     }
   }
 }
