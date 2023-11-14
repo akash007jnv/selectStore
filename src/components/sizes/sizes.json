@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_sizes_sizes",
+  "info": {
+    "displayName": "SIZES",
+    "icon": "grid"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}

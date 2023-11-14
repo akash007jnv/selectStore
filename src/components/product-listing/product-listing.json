@@ -2,7 +2,8 @@
   "collectionName": "components_product_listing_product_listings",
   "info": {
     "displayName": "ProductListing",
-    "icon": "shirt"
+    "icon": "shirt",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -10,11 +11,12 @@
       "type": "string"
     },
     "Images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "Color": {
       "type": "string"
@@ -24,6 +26,11 @@
     },
     "Stock": {
       "type": "integer"
+    },
+    "sizes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::size.size"
     }
   }
 }

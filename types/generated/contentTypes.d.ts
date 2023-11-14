@@ -844,6 +844,28 @@ export interface ApiProductProduct extends Schema.CollectionType {
   };
 }
 
+export interface ApiSizeSize extends Schema.CollectionType {
+  collectionName: 'sizes';
+  info: {
+    singularName: 'size';
+    pluralName: 'sizes';
+    displayName: 'size';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::size.size', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::size.size', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTagTag extends Schema.CollectionType {
   collectionName: 'tags';
   info: {
@@ -893,6 +915,7 @@ declare module '@strapi/types' {
       'api::category.category': ApiCategoryCategory;
       'api::featured-post.featured-post': ApiFeaturedPostFeaturedPost;
       'api::product.product': ApiProductProduct;
+      'api::size.size': ApiSizeSize;
       'api::tag.tag': ApiTagTag;
     }
   }

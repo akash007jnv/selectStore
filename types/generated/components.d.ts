@@ -5,6 +5,7 @@ export interface ProductListingProductListing extends Schema.Component {
   info: {
     displayName: 'ProductListing';
     icon: 'shirt';
+    description: '';
   };
   attributes: {
     Title: Attribute.String;
@@ -12,6 +13,22 @@ export interface ProductListingProductListing extends Schema.Component {
     Color: Attribute.String;
     Price: Attribute.Integer;
     Stock: Attribute.Integer;
+    sizes: Attribute.Relation<
+      'product-listing.product-listing',
+      'oneToMany',
+      'api::size.size'
+    >;
+  };
+}
+
+export interface SizesSizes extends Schema.Component {
+  collectionName: 'components_sizes_sizes';
+  info: {
+    displayName: 'SIZES';
+    icon: 'grid';
+  };
+  attributes: {
+    title: Attribute.String;
   };
 }
 
@@ -29,6 +46,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'product-listing.product-listing': ProductListingProductListing;
+      'sizes.sizes': SizesSizes;
       'tags.tags': TagsTags;
     }
   }
